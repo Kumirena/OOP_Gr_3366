@@ -98,5 +98,3 @@ public StudentGroup(List<Student> students, int course) {
        }
 
 }
-
-
