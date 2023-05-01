@@ -5,7 +5,7 @@ import java.util.List;
 public class StudentCourse implements Iterable<StudentGroup>{
     private  List<StudentGroup> courses;
     
-   
+  
  /**
   * конструктор потоков студентов(список курсов )
   * @param courses
@@ -18,12 +18,12 @@ public  StudentCourse(List<StudentGroup> courses) {
  * @return
  */
 public List<StudentGroup> getCourses() {
-    return courses;
-}
+    return courses; 
+    }
 
 public void setCourses(List<StudentGroup> courses) {
     this.courses = courses;
-}
+    }
 
     /**
      * подключение анонимного iteratorа для перебора в цикле for группы студентов
@@ -31,8 +31,9 @@ public void setCourses(List<StudentGroup> courses) {
      * */
 @Override
 public Iterator<StudentGroup> iterator() {
-    return new Iterator<StudentGroup>() {
+    return new Iterator<StudentGroup>()  {
         private int index = 0;
+      
         @Override
         public boolean hasNext() {
             return index < courses.size();
@@ -45,11 +46,11 @@ public Iterator<StudentGroup> iterator() {
             }
             return courses.get(index++);
         }
-        
-        
-    };
+       
+    }
+}
 }
 
-}
+
 
 

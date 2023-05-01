@@ -1,5 +1,3 @@
-
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -7,6 +5,13 @@ import java.util.List;
 import StudentDomen.Student;
 import StudentDomen.StudentCourse;
 import StudentDomen.StudentGroup;
+
+import Controllers.EmployeeController;
+import StudentDomen.Employee;
+import StudentDomen.Teacher;
+import StudentService.EmployeeService;
+import StudentService.StudentService;
+import StudentService.TeacherService;
 
 
 
@@ -70,15 +75,61 @@ public class App {
             StudentCourse course = new StudentCourse(listCourse);
             Collections.sort(course.getCourses()); // сортируем курсы 
             for (StudentGroup group :course.getCourses()) { // проходимся по каждой группе в каждом курсе
-                System.out.println("Course:" + group.getCourse() ); // выводим номер курса
+            System.out.println("Course:" + group.getCourse() ); // выводим номер курса
            
                 Collections.sort(group.getStudents()); // сортируем студентов в группе 
                 for (Student student : group.getStudents()) { // проходимся по каждому студенту в группе
-                    System.out.println(student); // выводим на печать группу и студента в ней
+                System.out.println(student); // выводим на печать группу и студента в ней
                 }
             }
                 
+       
+//сотрудники 
+            // Emploee person1 = new Emploee("Иванов", "Олег",55, 110);
+            // // Student s12 = new Student("Sergey","Ivanov", 41, 180);
+            // // Teacher person1_2 = new Teacher("Кузьмин", "Борис",60, 0201, "PhD");
+            // // EmploeeController contrEmp = new EmploeeController();
+                   
+            // EmploeeController.paySalary(person1);
+            // EmploeeController.paySalary(person1_2);
+            
+            Integer studHour[] = {124,45,34,124,67}; // часы студентов
+            System.out.println(EmployeeController.mean(studHour));//вызываем метод - jenerik
+
+            Double emplSalary[] = {12556.7,34543.0,10000.0};
+            System.out.println(EmployeeController.mean(emplSalary));
+            Teacher person1 = new Teacher("Иван", "Иванов", 35, 46, "Математика");
+            Teacher person2 = new Teacher("Петр", "Петров", 60, 34, "Физика");
+            Teacher person3 = new Teacher("Сидор", "Сидоров", 30, 35,"История");
+            List<Teacher> teachers = new ArrayList<Teacher>();
+            teachers.add(person1);
+            teachers.add(person2);
+            teachers.add(person3);
+            double averageTeacherAge = TeacherService.calculateAverageAge(teachers);
+            System.out.println("Средний возраст преподавателей: " + averageTeacherAge);
+
+            Student s25 = new Student("Sergey","Ivanov",33 , 180);
+            Student s20 = new Student("Oleg","Vetrov", 24, 111);
+            Student s30 = new Student("Dasha","Rideeva", 24, 123);
+            List<Student> students = new ArrayList<Student>();
+            students.add(s25);
+            students.add(s20);
+            students.add(s30);
+            double averageStudentAge = StudentService.calculateAverageAge(students);
+            System.out.println("Средний возраст студентов: " + averageStudentAge);
+
+            Employee pers1 = new Employee("Шванов", "Олег",65, 110);
+            Employee pers2 = new Employee("Петров", "Олег",50, 119);
+            Employee pers3 = new Employee("Иванов", "Олег",55, 118);
+            List<Employee> employees = new ArrayList<Employee>();
+            employees.add(pers1);
+            employees.add(pers2);
+            employees.add(pers3);
+            double averageEmployeeAge = EmployeeService.calculateAverageAge(employees);
+            
+            System.out.println("Средний возраст сотрудников: " + averageEmployeeAge);
+
+
     }
 }
     
-
